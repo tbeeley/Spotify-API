@@ -1,4 +1,4 @@
-# Crimewave: intro to APIs
+# Spotify Album Finder: an intro into APIs
 **A one-day experiment**
 
 ####Objectives
