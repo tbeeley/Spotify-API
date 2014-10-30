@@ -1,0 +1,51 @@
+<html>
+	<head>
+
+		<title>Spotify Albums</title>
+		<link href='spotify.css' rel='stylesheet'>
+		<script type ="text/javascript" src="https://www.google.com/jsapi"></script>
+		<script type ="text/javascript" src="googleimage.js"></script>
+		<script src='https://code.jquery.com/jquery-2.0.3.min.js'></script>
+
+	</head>
+
+	<body>
+
+		<form id='add_album'>
+			<input id='album' placeholder='Enter your favourite album'>
+			<button type='submit'>Find album</button>
+		</form>
+
+		<div class='album-container'>
+			<div class='picture-container'>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function(){
+				$('#add_album').on('submit', function(event) {
+					event.preventDefault();
+					var url ='https://mager-spotify-web.p.mashape.com/search/1/album.json?q=' + $('#album').val();
+
+					$.ajax({url: url, type: 'GET', success: function(response){
+						var album = response.albums[0];
+						var artist = response.albums[0].artists[0]
+						console.log(response)
+
+
+					$('<div class="album"><h1>' + album.name + '</h1><h2>Artist: ' + artist.name + '</h2><h2>Spotify popularity score: ' + album.popularity + '</h2></div>').prependTo('.album-container').slideDown();
+					findImagesOnGoogle({keywords: $('#album').val(), container: '.album-container .album:first'})
+
+					}, headers: {"X-Mashape-Key": "bcc6hZY8a9mshgstuxSOEQ54SxFAp14eKjYjsnhMvJcZDCyTPO"}})
+
+
+						
+				})
+			});	
+
+
+
+		</script>
+	</body
+
+</html>
