@@ -1,1 +1,8 @@
-README.md
+# Crimewave: intro to APIs
+**A one-day experiment**
+
+####Objectives
+
+To experiment with APIs, AJAX, JavaScript and JQuery, I used Spotify's API. 
+
+
